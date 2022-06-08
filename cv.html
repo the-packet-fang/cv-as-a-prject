@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
@@ -17,14 +17,98 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
   background-color: #fff;
 }
 .cust_w3-text-deep-purple, .cust_w3-hover-text-deep-purple:hover {
-    color: #6e198f!;
+    color: #6e198f;
 }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" ></script>
+<script type="text/javascript">
+  function whichBrowser(agent) { 
+  //agent needs to be set to (window.navigator.userAgent);
+
+  var browserName;
+  switch (true) {
+    case agent.toLowerCase().indexOf("edge") > -1: browserName = "MS Edge"; break;
+    case agent.toLowerCase().indexOf("edg/") > -1: browserName =  "Edge ( chromium based)"; break;
+    case agent.toLowerCase().indexOf("opr") > -1 && !!window.opr: browserName =  "Opera"; break;
+    case agent.toLowerCase().indexOf("chrome") > -1 && !!window.chrome: browserName =  "Chrome"; break;
+    case agent.toLowerCase().indexOf("trident") > -1: browserName =  "MS IE"; break;
+    case agent.toLowerCase().indexOf("firefox") > -1: browserName =  "Mozilla Firefox"; break;
+    case agent.toLowerCase().indexOf("safari") > -1: browserName =  "Safari"; break;
+    default: browserName =  "other";
+  }
+  return browserName;
+};
+  function pushData(){
+    let browser = whichBrowser(window.navigator.userAgent);
+    let rawdata;
+
+    // synchronous calls
+    $.ajaxSetup({async:false});
+    $.getJSON('https://api.db-ip.com/v2/free/self', function(result) {
+    rawdata = result;})
+    
+    let success;
+    try{
+    var message = {
+        "ipAddress":rawdata.ipAddress,
+        "countryName":rawdata.countryName,
+        "city":rawdata.city,
+        "browser": browser};
+    console.log(message);
+    success = true;
+    } catch(e) {
+      success = false;
+      console.log(e);
+    }
+    if(success == false) {
+      message = {
+        "ipAddress": "empty",
+        "countryName": "empty",
+        "city": "empty",
+        "browser": browser};
+      console.log("error fetching data. Please disable your ad blocker");
+    }
+
+    console.log(message);
+    $.ajax({
+        async: false,
+        url: "https://4em1xp5e0l.execute-api.eu-west-2.amazonaws.com/visitors",
+        headers: {
+        },
+        crossDomain: true,
+        type: "GET",
+        success: function (result) {
+            console.log(result);
+            console.log("logging success get");
+        },
+        error: function () {
+            console.log("error get");
+        }
+    })
+     $.ajax({
+        async: false,
+        url: "https://4em1xp5e0l.execute-api.eu-west-2.amazonaws.com/take_data",
+        headers: {
+        },
+        crossDomain: true,
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(
+          message),
+        success: function (result) {
+            console.log(result);
+            console.log("success post");
+        },
+        error: function () {
+            console.log("error pushing data");
+        }
+    })
+  }
+</script>
 </head>
 
-<body class="w3-light-grey">
-
-<!-- Page Container -->
+<body class="w3-light-grey" onload="pushData()">
+<!-- Page Container --> 
 <div class="w3-content w3-margin-top" style="max-width:1400px;">
 
   <!-- The Grid -->
@@ -102,13 +186,13 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             <h2>Anas Mraouni</h2>
             <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>Technical support Engineer</p>
             <p><i class="fa fa-home fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>Casablanca, Morocco</p>
-            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>anas.mraouni@mail.com</p>
+            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>anas.mraouni@m.com</p>
             <p><i class="fa fa-phone fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>+212XX</p>
           </div>
           <hr>
         <div class="w3-container w3-text-black w3-margin-top">
           <p class="w3-large"><b class=" w3-xlarge w3-text-grey"><i class="fa fa-asterisk fa-fw w3-margin-right cust_w3-text-deep-purple"></i>Skills</b></p>
-          <p>Networking: IP, DHCP, DNS, VLAN, STP, PORTSEC, ETHERCHANNEL, SPAN, OSPF, EIGRP, NAT,  ACL, FHRP, HSRP,  PPP, IPSLA</p>
+          <p>Networking: IP, TCP, UDP, DHCP, DNS, VLAN, STP, SPAN, OSPF, EIGRP, NAT,  ACL, PORTSEC, ETHERCHANNEL, FHRP, HSRP,  PPP, IPSLA</p>
           <p>Configuration and administration of Linux systems (Arch, Debian…)</p>
           <p>Mastering Git and Hypervisors, containerization technologies</p>
           <p>Python Programming and scripting, implementing SDKs and Interacting with different APIs</p>
@@ -129,12 +213,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
 <footer class="w3-container w3-deep-purple w3-center w3-margin-top">
   <p>Find me on social media.</p>
-  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity" href="https://www.linkedin.com/in/anas-mr"> </i>
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
 </footer>
 
