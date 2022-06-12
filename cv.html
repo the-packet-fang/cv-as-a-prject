@@ -19,6 +19,11 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 .cust_w3-text-deep-purple, .cust_w3-hover-text-deep-purple:hover {
     color: #6e198f;
 }
+.cust_skill {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: bolder;
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" ></script>
 <script type="text/javascript">
@@ -114,8 +119,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
   <!-- The Grid -->
   <div class="w3-row-padding">
 
-        <!-- NOT Right Column -->
-        <div class="w3-twothird">
+        <!-- Left Column / using custom width -->
+        <div class="w3-twothird" style="width:60%">
 
           <div class="w3-container w3-card w3-white w3-margin-bottom">
             <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge cust_w3-text-deep-purple"></i>Certifications</h2>
@@ -174,10 +179,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             </div>
           </div>
     
-        <!-- End NOT Right Column -->
+        <!-- End Left Column -->
         </div>
-            <!-- NOT Left Column -->
-    <div class="w3-third">
+            <!-- Right Column  / using custom width -->
+    <div class="w3-third" style="width:40%">
     
       <div class="w3-white w3-text-grey w3-card-4">
 
@@ -186,23 +191,67 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             <h2>Anas Mraouni</h2>
             <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>Technical support Engineer</p>
             <p><i class="fa fa-home fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>Casablanca, Morocco</p>
-            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>anas.mraouni@m.com</p>
-            <p><i class="fa fa-phone fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>+212XX</p>
-          </div>
-          <hr>
+            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>anas.mraouni@gmail.com</p>
+<!--             <p><i class="fa fa-phone fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>+212XX</p> --> 
+            <p><i class="fa fa-linkedin w3-hover-opacity fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i> <a href="https://www.linkedin.com/in/anas-mr" target="_blank">anas mraouni</a></p>
+            <p><i class="fa fa-github w3-hover-opacity fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i> <a href="https://github.com/the-packet-fang/" target="_blank">The-packet-fang</a></p>
+        </div>
+        <hr>
+
         <div class="w3-container w3-text-black w3-margin-top">
           <p class="w3-large"><b class=" w3-xlarge w3-text-grey"><i class="fa fa-asterisk fa-fw w3-margin-right cust_w3-text-deep-purple"></i>Skills</b></p>
-          <p>Networking: IP, TCP, UDP, DHCP, DNS, VLAN, STP, SPAN, OSPF, EIGRP, NAT,  ACL, PORTSEC, ETHERCHANNEL, FHRP, HSRP,  PPP, IPSLA</p>
-          <p>Configuration and administration of Linux systems (Arch, Debian…)</p>
-          <p>Mastering Git and Hypervisors, containerization technologies</p>
-          <p>Python Programming and scripting, implementing SDKs and Interacting with different APIs</p>
+          <p>Networking: </p>
+            <span class="cust_skill">IP</span>
+            <span class="cust_skill">TCP</span>
+            <span class="cust_skill">UDP</span>
+            <span class="cust_skill">DHCP</span>
+            <span class="cust_skill">DNS</span>
+            <span class="cust_skill">VLAN</span>
+            <span class="cust_skill">STP</span>
+            <span class="cust_skill">NAT</span>
+            <span class="cust_skill">SPAN</span>
+            <span class="cust_skill">OSPF</span>
+            <span class="cust_skill">EIGRP</span>
+            <span class="cust_skill">ACL</span>
+            <span class="cust_skill">ETHERCHANNEL</span>
+            <span class="cust_skill">FHRP</span>
+            <span class="cust_skill">PPP</span>
+            <span class="cust_skill">IPSLA</span>
+          <p>AWS: </p>
+            <span class="cust_skill">EC2</span>
+            <span class="cust_skill">ELB</span>
+            <span class="cust_skill">ASG</span>
+            <span class="cust_skill">EFS</span>
+            <span class="cust_skill">Cloudfront</span>
+            <span class="cust_skill">SNS</span>
+            <span class="cust_skill">SQS</span>
+            <span class="cust_skill">S3</span>
+            <span class="cust_skill">Route 53</span>
+            <span class="cust_skill">VPC</span>
+          <p>VOIP: </p>
+            <span class="cust_skill">SIP/SIPS</span>
+            <span class="cust_skill">RTP/SRTP</span>
+            <span class="cust_skill">H.264</span>
+            <span class="cust_skill">STUN</span>
+            <span class="cust_skill">TURN</span>
+          <p>Linux distributions: </p>
+            <span class="cust_skill">Arch</span>
+            <span class="cust_skill">Debian</span>
+          <p>programming/scripting: </p>
+            <span class="cust_skill">Python</span>
+            <span class="cust_skill">bash</span>
+          <p>Tools: </p>
+            <span class="cust_skill">Hypervisors</span>
+            <span class="cust_skill">Git</span>
+            <span class="cust_skill">docker</span>
+          <br>
           <br>
         </div>
 
         </div>
       </div><br>
 
-    <!-- End NOT Left Column -->
+    <!-- End Right Column -->
     </div>
     
   <!-- End Grid -->
@@ -212,9 +261,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 </div>
 
 <footer class="w3-container w3-deep-purple w3-center w3-margin-top">
-  <p>Find me on social media.</p>
-  <i class="fa fa-linkedin w3-hover-opacity" href="https://www.linkedin.com/in/anas-mr"> </i>
+  <br>
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  <br>
 </footer>
 
 </body>
