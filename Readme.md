@@ -118,6 +118,11 @@ After creating the hosted zone, four NS records and one SOA record are created b
 
 Then a new A record is created on Route 53 with the new subdomain: `cv.cloud.amethystfang.com.` 
 
+.
+.
+.
+
+
 Test the record resolution with:
 ```
 ~/  dig cv.cloud.amethystfang.com
@@ -143,3 +148,10 @@ cv.cloud.amethystfang.com. 300 IN     A       1.1.1.1
 ;; MSG SIZE  rcvd: 100
 ```
 ### Incorporating public certificates: Cloudflare & ACM
+Initally, i started this section witha clear idea that the CA is on cloudflare, and I only needed to get it, then upload it to ACM to work with the subdomain used on Route 53. After after a small search I found this [link](https://developers.cloudflare.com/ssl/origin-configuration/origin-ca#1-create-an-origin-ca-certificate) with the necaissary steps and the origin CA to be used, but eventhough I followed the steps from [the aws documentation](https://aws.amazon.com/premiumsupport/knowledge-center/acm-import-troubleshooting/), I kept getting:
+
+```
+The certificate that is attached to your distribution was not issued by a trusted Certificate Authority.
+For more details, see: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-requirements
+```
+

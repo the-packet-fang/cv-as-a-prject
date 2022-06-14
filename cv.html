@@ -1,271 +1,198 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>CV-as-a-Project</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
-.cust_class_cert {
-  font-weight: 400;
-  font-family: sans-serif;
-  font-size: 18px;
-  color: #000;
-  background-color: #fff;
-}
-.cust_w3-text-deep-purple, .cust_w3-hover-text-deep-purple:hover {
-    color: #6e198f;
-}
-.cust_skill {
-  padding-left: 10px;
-  padding-right: 10px;
-  font-weight: bolder;
-}
-</style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" ></script>
-<script type="text/javascript">
-  function whichBrowser(agent) { 
-  //agent needs to be set to (window.navigator.userAgent);
+    <head>
+        <title>CV-as-a-Project</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script defer src="script.js"></script>
+        <style>
+            html,
+            body,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-family: "Roboto", sans-serif;
+            }
+            .cust_class_cert {
+                font-weight: 400;
+                font-family: sans-serif;
+                font-size: 18px;
+                color: #000;
+                background-color: #fff;
+            }
+            .cust_w3-text-deep-purple,
+            .cust_w3-hover-text-deep-purple:hover {
+                color: #6e198f;
+            }
+            .cust_skill {
+                padding-left: 10px;
+                padding-right: 10px;
+                font-weight: bolder;
+            }
+        </style>
+    </head>
 
-  var browserName;
-  switch (true) {
-    case agent.toLowerCase().indexOf("edge") > -1: browserName = "MS Edge"; break;
-    case agent.toLowerCase().indexOf("edg/") > -1: browserName =  "Edge ( chromium based)"; break;
-    case agent.toLowerCase().indexOf("opr") > -1 && !!window.opr: browserName =  "Opera"; break;
-    case agent.toLowerCase().indexOf("chrome") > -1 && !!window.chrome: browserName =  "Chrome"; break;
-    case agent.toLowerCase().indexOf("trident") > -1: browserName =  "MS IE"; break;
-    case agent.toLowerCase().indexOf("firefox") > -1: browserName =  "Mozilla Firefox"; break;
-    case agent.toLowerCase().indexOf("safari") > -1: browserName =  "Safari"; break;
-    default: browserName =  "other";
-  }
-  return browserName;
-};
-  function pushData(){
-    let browser = whichBrowser(window.navigator.userAgent);
-    let rawdata;
+    <body class="w3-light-grey" onload="pushData()">
+        <!-- Page Container -->
+        <div class="w3-content w3-margin-top" style="max-width: 1400px;">
+            <!-- The Grid -->
+            <div class="w3-row-padding">
+                <!-- Left Column / using custom width -->
+                <div class="w3-twothird" style="width: 60%;">
+                    <div class="w3-container w3-card w3-white w3-margin-bottom">
+                        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge cust_w3-text-deep-purple"></i>Certifications</h2>
+                        <div class="w3-container">
+                            <h5 class="cust_w3-text-deep-purple">
+                                <i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2022 - <span class="cust_class_cert"> <b>AWS Certified Solutions Architect Associate</b></span>
+                            </h5>
+                            <br />
+                        </div>
+                        <div class="w3-container">
+                            <h5 class="cust_w3-text-deep-purple">
+                                <i class="fa fa-calendar fa-fw w3-margin-right"></i>Dec 2020 - <span class="cust_class_cert"> <b>Cisco Certified Network Associate — CCNA</b></span>
+                            </h5>
+                        </div>
+                        <br />
+                        <div class="w3-container">
+                            <h5 class="cust_w3-text-deep-purple">
+                                <i class="fa fa-calendar fa-fw w3-margin-right"></i>Jul 2020 - <span class="cust_class_cert"> <b>Cisco CCENT</b></span>
+                            </h5>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="w3-container w3-card w3-white w3-margin-bottom">
+                        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge cust_w3-text-deep-purple"></i>Work Experience</h2>
+                        <div class="w3-container">
+                            <h5 class="w3-opacity"><b>Technical support Engineer / Grandstream Networks</b></h5>
+                            <h6 class="cust_w3-text-deep-purple"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2021 - <span class="w3-tag w3-deep-purple w3-round">Current</span></h6>
+                            <ul>
+                                <li>Integrating and troubleshooting deployments of different ITSPs and partners while providing the best recommendation for their architectures.<br /></li>
+                                <li>Assisting my teammates on different cases involving advanced networking issues.<br /></li>
+                                <li>Assisting and monitoring new interns on their tasks.<br /></li>
+                                <li>Managing the defective cases and handling the RMA process.<br /></li>
+                                <li>Administrating our office's infrastructure.<br /></li>
+                            </ul>
+                            <h6 class="w3-opacity w3-margin-left"><b>Junior Technical support Engineer / Grandstream Networks</b></h6>
+                            <h6 class="cust_w3-text-deep-purple"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2021 - Jan 2022</h6>
+                            <ul>
+                                <li>Assisting our customers and partners implementing and configuring different products from our portfolio on their projects.<br /></li>
+                                <li>Using different network analysis tools to troubleshoot issues on deployments involving our networking, telecominication and conferencing product lines <br /></li>
+                                <li>Integrating our solutions with existing deployments e.g: VPN (OpenVPN, Wireguard, IPSEC), vlan architectures wireless deployments, AAA ( Raduis, Tacacs+), web portals, etc.<br /></li>
+                                <li>Working closely with our dev team to report and test different bug fixes and feature requests.<br /></li>
+                                <li>Writing and updating our documents and resources based on newly implemented change.<br /></li>
+                            </ul>
+                        </div>
+                        <br />
+                    </div>
 
-    // synchronous calls
-    $.ajaxSetup({async:false});
-    $.getJSON('https://api.db-ip.com/v2/free/self', function(result) {
-    rawdata = result;})
-    
-    let success;
-    try{
-    var message = {
-        "ipAddress":rawdata.ipAddress,
-        "countryName":rawdata.countryName,
-        "city":rawdata.city,
-        "browser": browser};
-    console.log(message);
-    success = true;
-    } catch(e) {
-      success = false;
-      console.log(e);
-    }
-    if(success == false) {
-      message = {
-        "ipAddress": "empty",
-        "countryName": "empty",
-        "city": "empty",
-        "browser": browser};
-      console.log("error fetching data. Please disable your ad blocker");
-    }
+                    <div class="w3-container w3-card w3-white">
+                        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-university fa-fw w3-margin-right w3-xxlarge cust_w3-text-deep-purple"></i>Education</h2>
+                        <div class="w3-container">
+                            <h5 class="w3-opacity"><b>hassan 1st university</b></h5>
+                            <h6 class="cust_w3-text-deep-purple"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2020 - 2021</h6>
+                            <p>Bachelor's degree - IP and cloud computing</p>
+                            <hr />
+                        </div>
+                        <div class="w3-container">
+                            <h5 class="w3-opacity"><b>Specialized Institute Of Applied Technology NTIC</b></h5>
+                            <h6 class="cust_w3-text-deep-purple"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2018 - 2020</h6>
+                            <p>Associate's degree - Network and systems administration</p>
+                            <hr />
+                        </div>
+                    </div>
 
-    console.log(message);
-    $.ajax({
-        async: false,
-        url: "https://4em1xp5e0l.execute-api.eu-west-2.amazonaws.com/visitors",
-        headers: {
-        },
-        crossDomain: true,
-        type: "GET",
-        success: function (result) {
-            console.log(result);
-            console.log("logging success get");
-        },
-        error: function () {
-            console.log("error get");
-        }
-    })
-     $.ajax({
-        async: false,
-        url: "https://4em1xp5e0l.execute-api.eu-west-2.amazonaws.com/take_data",
-        headers: {
-        },
-        crossDomain: true,
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(
-          message),
-        success: function (result) {
-            console.log(result);
-            console.log("success post");
-        },
-        error: function () {
-            console.log("error pushing data");
-        }
-    })
-  }
-</script>
-</head>
+                    <!-- End Left Column -->
+                </div>
+                <!-- Right Column  / using custom width -->
+                <div class="w3-third" style="width: 40%;">
+                    <div class="w3-white w3-text-grey w3-card-4">
+                        <div class="w3-container">
+                            <div class="w3-container w3-text-black w3-margin-top">
+                                <h2>Anas Mraouni</h2>
+                                <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>Technical support Engineer</p>
+                                <p><i class="fa fa-home fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>Casablanca, Morocco</p>
+                                <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>anas.mraouni@gmail.com</p>
+                                <!--             <p><i class="fa fa-phone fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>+212XX</p> -->
+                                <p><i class="fa fa-linkedin w3-hover-opacity fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i> <a href="https://www.linkedin.com/in/anas-mr" target="_blank">anas mraouni</a></p>
+                                <p><i class="fa fa-github w3-hover-opacity fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i> <a href="https://github.com/the-packet-fang/" target="_blank">The-packet-fang</a></p>
+                            </div>
+                            <hr />
 
-<body class="w3-light-grey" onload="pushData()">
-<!-- Page Container --> 
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+                            <div class="w3-container w3-text-black w3-margin-top">
+                                <p class="w3-large">
+                                    <b class="w3-xlarge w3-text-grey"><i class="fa fa-asterisk fa-fw w3-margin-right cust_w3-text-deep-purple"></i>Skills</b>
+                                </p>
+                                <p>Networking:</p>
+                                <span class="cust_skill">IP</span>
+                                <span class="cust_skill">TCP</span>
+                                <span class="cust_skill">UDP</span>
+                                <span class="cust_skill">DHCP</span>
+                                <span class="cust_skill">DNS</span>
+                                <span class="cust_skill">VLAN</span>
+                                <span class="cust_skill">STP</span>
+                                <span class="cust_skill">NAT</span>
+                                <span class="cust_skill">SPAN</span>
+                                <span class="cust_skill">OSPF</span>
+                                <span class="cust_skill">EIGRP</span>
+                                <span class="cust_skill">ACL</span>
+                                <span class="cust_skill">ETHERCHANNEL</span>
+                                <span class="cust_skill">FHRP</span>
+                                <span class="cust_skill">PPP</span>
+                                <span class="cust_skill">IPSLA</span>
+                                <p>AWS:</p>
+                                <span class="cust_skill">EC2</span>
+                                <span class="cust_skill">ELB</span>
+                                <span class="cust_skill">ASG</span>
+                                <span class="cust_skill">EFS</span>
+                                <span class="cust_skill">Cloudfront</span>
+                                <span class="cust_skill">SNS</span>
+                                <span class="cust_skill">SQS</span>
+                                <span class="cust_skill">S3</span>
+                                <span class="cust_skill">Route 53</span>
+                                <span class="cust_skill">VPC</span>
+                                <p>VOIP:</p>
+                                <span class="cust_skill">SIP/SIPS</span>
+                                <span class="cust_skill">RTP/SRTP</span>
+                                <span class="cust_skill">H.264</span>
+                                <span class="cust_skill">STUN</span>
+                                <span class="cust_skill">TURN</span>
+                                <p>Linux distributions:</p>
+                                <span class="cust_skill">Arch</span>
+                                <span class="cust_skill">Debian</span>
+                                <p>programming/scripting:</p>
+                                <span class="cust_skill">Python</span>
+                                <span class="cust_skill">bash</span>
+                                <p>Tools:</p>
+                                <span class="cust_skill">Hypervisors</span>
+                                <span class="cust_skill">Git</span>
+                                <span class="cust_skill">docker</span>
+                                <br />
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                    <br />
 
-  <!-- The Grid -->
-  <div class="w3-row-padding">
+                    <!-- End Right Column -->
+                </div>
 
-        <!-- Left Column / using custom width -->
-        <div class="w3-twothird" style="width:60%">
-
-          <div class="w3-container w3-card w3-white w3-margin-bottom">
-            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge cust_w3-text-deep-purple"></i>Certifications</h2>
-            <div class="w3-container">
-              <h5 class="cust_w3-text-deep-purple"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2022 - <span class="cust_class_cert" > <b>AWS Certified Solutions Architect Associate</b></span></h6>
-              <br>
+                <!-- End Grid -->
             </div>
-            <div class="w3-container">
-              <h5 class="cust_w3-text-deep-purple"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Dec 2020 - <span class="cust_class_cert" > <b>Cisco Certified Network Associate — CCNA</b></span></h6>
-              </div>
-              <br>
-            <div class="w3-container">
-              <h5 class="cust_w3-text-deep-purple"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jul 2020 - <span class="cust_class_cert" > <b>Cisco CCENT</b></span></h6>
-              <br>
-              </div>  
 
-          </div>
-          <div class="w3-container w3-card w3-white w3-margin-bottom">
-            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge cust_w3-text-deep-purple"></i>Work Experience</h2>
-            <div class="w3-container">
-              <h5 class="w3-opacity"><b>Technical support Engineer / Grandstream Networks</b></h5>
-              <h6 class="cust_w3-text-deep-purple"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2021 - <span class="w3-tag w3-deep-purple w3-round">Current</span></h6>
-              <ul>
-                <li>Integrating and troubleshooting deployments of different ITSPs and partners while providing the best recommendation for their architectures.<br></li>
-                <li>Assisting my teammates on different cases involving advanced networking issues.<br></li>
-                <li>Assisting and monitoring new interns on their tasks.<br></li>
-                <li>Managing the defective cases and handling the RMA process.<br></li>
-                <li>Administrating our office's infrastructure.<br></li>
-                </ul>
-              <h6 class="w3-opacity w3-margin-left"><b>Junior Technical support Engineer / Grandstream Networks</b></h5>
-              <h6 class="cust_w3-text-deep-purple"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2021 - Jan 2022</h6>
-              <ul>
-                <li>Assisting our customers and partners implementing and configuring different products from our portfolio on their projects.<br></li>
-                <li>Using different network analysis tools to troubleshoot issues on deployments involving our networking, telecominication and conferencing product lines <br></li>
-                <li>Integrating our solutions with existing deployments e.g: VPN (OpenVPN, Wireguard, IPSEC), vlan architectures wireless deployments, AAA ( Raduis, Tacacs+), web portals, etc.<br></li>
-                <li>Working closely with our dev team to report and test different bug fixes and feature requests.<br></li>
-                <li>Writing and updating our documents and resources based on newly implemented change.<br></li>
-                </ul>
-            </div>
-            <br>
-          </div>
-    
-          <div class="w3-container w3-card w3-white">
-            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-university fa-fw w3-margin-right w3-xxlarge cust_w3-text-deep-purple"></i>Education</h2>
-            <div class="w3-container">
-              <h5 class="w3-opacity"><b>hassan 1st university</b></h5>
-              <h6 class="cust_w3-text-deep-purple"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2020 - 2021</h6>
-              <p>Bachelor's degree - IP and cloud computing</p>
-              <hr>
-            </div>
-            <div class="w3-container">
-              <h5 class="w3-opacity"><b>Specialized Institute Of Applied Technology NTIC</b></h5>
-              <h6 class="cust_w3-text-deep-purple"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2018 - 2020</h6>
-              <p>Associate's degree - Network and systems administration</p>
-              <hr>
-            </div>
-          </div>
-    
-        <!-- End Left Column -->
-        </div>
-            <!-- Right Column  / using custom width -->
-    <div class="w3-third" style="width:40%">
-    
-      <div class="w3-white w3-text-grey w3-card-4">
-
-        <div class="w3-container">
-          <div class="w3-container w3-text-black w3-margin-top">
-            <h2>Anas Mraouni</h2>
-            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>Technical support Engineer</p>
-            <p><i class="fa fa-home fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>Casablanca, Morocco</p>
-            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>anas.mraouni@gmail.com</p>
-<!--             <p><i class="fa fa-phone fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i>+212XX</p> --> 
-            <p><i class="fa fa-linkedin w3-hover-opacity fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i> <a href="https://www.linkedin.com/in/anas-mr" target="_blank">anas mraouni</a></p>
-            <p><i class="fa fa-github w3-hover-opacity fa-fw w3-margin-right w3-large cust_w3-text-deep-purple"></i> <a href="https://github.com/the-packet-fang/" target="_blank">The-packet-fang</a></p>
-        </div>
-        <hr>
-
-        <div class="w3-container w3-text-black w3-margin-top">
-          <p class="w3-large"><b class=" w3-xlarge w3-text-grey"><i class="fa fa-asterisk fa-fw w3-margin-right cust_w3-text-deep-purple"></i>Skills</b></p>
-          <p>Networking: </p>
-            <span class="cust_skill">IP</span>
-            <span class="cust_skill">TCP</span>
-            <span class="cust_skill">UDP</span>
-            <span class="cust_skill">DHCP</span>
-            <span class="cust_skill">DNS</span>
-            <span class="cust_skill">VLAN</span>
-            <span class="cust_skill">STP</span>
-            <span class="cust_skill">NAT</span>
-            <span class="cust_skill">SPAN</span>
-            <span class="cust_skill">OSPF</span>
-            <span class="cust_skill">EIGRP</span>
-            <span class="cust_skill">ACL</span>
-            <span class="cust_skill">ETHERCHANNEL</span>
-            <span class="cust_skill">FHRP</span>
-            <span class="cust_skill">PPP</span>
-            <span class="cust_skill">IPSLA</span>
-          <p>AWS: </p>
-            <span class="cust_skill">EC2</span>
-            <span class="cust_skill">ELB</span>
-            <span class="cust_skill">ASG</span>
-            <span class="cust_skill">EFS</span>
-            <span class="cust_skill">Cloudfront</span>
-            <span class="cust_skill">SNS</span>
-            <span class="cust_skill">SQS</span>
-            <span class="cust_skill">S3</span>
-            <span class="cust_skill">Route 53</span>
-            <span class="cust_skill">VPC</span>
-          <p>VOIP: </p>
-            <span class="cust_skill">SIP/SIPS</span>
-            <span class="cust_skill">RTP/SRTP</span>
-            <span class="cust_skill">H.264</span>
-            <span class="cust_skill">STUN</span>
-            <span class="cust_skill">TURN</span>
-          <p>Linux distributions: </p>
-            <span class="cust_skill">Arch</span>
-            <span class="cust_skill">Debian</span>
-          <p>programming/scripting: </p>
-            <span class="cust_skill">Python</span>
-            <span class="cust_skill">bash</span>
-          <p>Tools: </p>
-            <span class="cust_skill">Hypervisors</span>
-            <span class="cust_skill">Git</span>
-            <span class="cust_skill">docker</span>
-          <br>
-          <br>
+            <!-- End Page Container -->
         </div>
 
-        </div>
-      </div><br>
-
-    <!-- End Right Column -->
-    </div>
-    
-  <!-- End Grid -->
-  </div>
-  
-  <!-- End Page Container -->
-</div>
-
-<footer class="w3-container w3-deep-purple w3-center w3-margin-top">
-  <br>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-  <br>
-</footer>
-
-</body>
+        <footer class="w3-container w3-deep-purple w3-center w3-margin-top">
+            <br />
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+            <br />
+        </footer>
+    </body>
 </html>
-
