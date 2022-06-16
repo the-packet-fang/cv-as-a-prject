@@ -172,5 +172,5 @@ At this point, The frontend script can collect the required data and send it to 
 
 I created two routes; the first one accepts GET requests and triggers the first function to query the number of entries in the table which will work as a visitor's counter. The second route for POST requests with JSON payload is handed to a second function to serialize the data and write it to the DB.
 
-I used Postman for testing and encountered some CORS issues, but after finding [this useful blog post](https://dev.to/aws-builders/your-complete-api-gateway-and-cors-guide-11jb) I did the necessary tuning and deploy all changes to production.
+I used Postman for testing and encountered some CORS issues. At this point, I disabled the caching functionality to easily test the changes. And with enough research, especially after finding [this useful blog post](https://dev.to/aws-builders/your-complete-api-gateway-and-cors-guide-11jb), I did the necessary tuning and deploy all changes to production.
 
