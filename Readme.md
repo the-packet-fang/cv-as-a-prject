@@ -36,10 +36,12 @@ To start with Github, I decide to refresh my knowledge with [Github skills](http
 Trying to push it to Github failed with the error "Support for password authentication removed”, and a link describing the switch to `access tokens` instead of `username & password` with the steps required. A new token needs to be created and using the `gh` command to load it locally, then pushing the change to the central repository is working.
 
 ### Getting to the website
-I headed to [w3schools](https://www.w3schools.com/) and started drafting the resume I'm trying to build. After getting a basic grasp of the syntax, I chose a template and build a mockup with the certification I hold, work experience, and additional information.
+
+I headed to [w3schools](https://www.w3schools.com/) and started drafting the resume I wanted to build. After getting a basic grasp of the syntax, I chose a template and build a mockup my certifications, work experience, and additional information.
 
 ### Introducing AWS services
-Here I decided to get into AWS and start getting a real form of how the project will be. At this point, I already checked how the services work from the console side, so to get some experience with the CLI, I installed `aws-cli`  to do the following tasks.
+
+Next, I decided to delve into AWS to give the project a real form. By this point, I had already familiarized myself with the services through the console. To gain experience with the CLI, I installed  `aws-cli` and performed the following tasks:
 
 Create a new bucket:
 ```
@@ -67,7 +69,10 @@ So to block public access to the S3 bucket I used this command:
     --bucket mybucketname \
     --public-access-block-configuration "BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true"
 ```
-Cloudfront was chosen to benefit primarily from the HTTPS capability while using our certificate and domain name. I started by referring to [the documention](https://docs.aws.amazon.com/cli/latest/reference/cloudfront/create-distribution.html), where I found an example template with all the options to create a new distribution. This template needs to be loaded into a JSON file which I named `dist-config.json`. Before creating the distribution, I could note that the OAI policy won't be generated similar to doing it via the console. So the following command is needed first:
+
+### CloudFront Configuration
+CloudFront was chosen primarily for its HTTPS capability, allowing us to use our certificate and domain name. I started by referring to [the documentation](https://docs.aws.amazon.com/cli/latest/reference/cloudfront/create-distribution.html), where I found an example template with all the options needed to create a new distribution. This template needed to be loaded into a JSON file, which I named `dist-config.json`. Before creating the distribution, I noted that the OAI (Origin Access Identity) policy wouldn't be generated automatically as it would be via the console. Therefore, the following command was needed first:
+
 ```
 ~/ $ aws cloudfront create-cloud-front-origin-access-identity \
     --cloud-front-origin-access-identity-config \
@@ -147,30 +152,34 @@ cv.cloud.amethystfang.com. 300 IN     A       1.1.1.1
 ;; MSG SIZE  rcvd: 100
 ```
 ### Incorporating public certificates: Cloudflare & ACM
-Initially, I started this section with a clear idea that the CA is on Cloudflare, and I only needed to get it, then upload it to ACM to work with the subdomain used on Route 53. After a small search, I found this [link](https://developers.cloudflare.com/ssl/origin-configuration/origin-ca#1-create-an-origin-ca-certificate) with the necessary steps and the origin CA from Cloudflare, but even though I followed the steps from [the AWS documentation](https://aws.amazon.com/premiumsupport/knowledge-center/acm-import-troubleshooting/), I kept getting:
+
+Initially, I started this section with the clear idea that the CA was on Cloudflare, and I only needed to obtain it and then upload it to ACM to work with the subdomain used on Route 53. After a brief search, I found [this link](https://developers.cloudflare.com/ssl/origin-configuration/origin-ca#1-create-an-origin-ca-certificate) with the necessary steps and the origin CA from Cloudflare. However, even after following the steps in [the AWS documentation](https://aws.amazon.com/premiumsupport/knowledge-center/acm-import-troubleshooting/), I kept getting:
 
 ```
 The certificate that is attached to your distribution was not issued by a trusted Certificate Authority.
 For more details, see: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-requirements
 ```
-I was sure that at this point, everything was configured accordingly (since a handful of errors were fixed before getting to this one). So after some research, especially one [r/aws](https://www.reddit.com/r/aws/) I could confirm that AWS isn't trusting Cloudflare's CA as it is not on [The Mozilla CA Certificate Program's list](https://wiki.mozilla.org/CA/Included_Certificates).
+I was confident that everything was configured correctly at this point, as I had resolved several errors beforehand. However, after some research, particularly on [r/aws](https://www.reddit.com/r/aws/), I discovered that AWS doesn't trust Cloudflare's CA because it is not on [The Mozilla CA Certificate Program's list](https://wiki.mozilla.org/CA/Included_Certificates).
 
-At this point, I switch to ACM, by generating a certificate for the subdomain used on AWS. The steps are described in this [how-to guide](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html), where the ownership needs to be verified as explained [here](https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html), and preferably using [DNS validation](https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html).
+At this point, I switched to ACM and generated a certificate for the subdomain used on AWS. The steps are described in this [how-to guide](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html), where ownership needs to be verified as explained [here](https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html), and preferably using [DNS validation](https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html).
 
 ### Javascript
-With no previous knowledge of JS, I went back to [w3schools](https://www.w3schools.com/) to accumulate the basics before making the next step, and this was the steepest learning curve on this project until now. I also decided to raise the bar of this challenge and to collect the browser used by clients, and the public IP address in addition to related information about it. 
+With no previous knowledge of JavaScript, I revisited [w3schools](https://www.w3schools.com/) to learn the basics before proceeding further. This turned out to be the steepest learning curve of the project so far. To add to the challenge, I decided to collect the browser information and the public IP address of clients, along with related data.
 
-After understanding enough about the needed task, I started by referring to some StackOverflow posts for guidance. In the end, with many trials and errors, I could have a properly working script to do the necessary tasks.
+After gaining a sufficient understanding of the task, I referred to various StackOverflow posts for guidance. Through many trials and errors, I eventually developed a working script to perform the necessary tasks.
 
 ### The Backend: DynamoDB & Lambda functions
-In this section, I started by creating the DB table, and since this is a NO-SQL DB, working with the data was easier than expected.
+In this section, I started by creating the DynamoDB table. Since this is a NoSQL database, working with the data was easier than expected.
 
- For the Lambda function, I could write a small program to send data to the DB using Python. The function was assigned with proper IAM roles/policies to access DyanmoDB and used the boto3 library to connect and write to the DB according to [This documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html).
+For the Lambda function, I wrote a small program in Python to send data to the database. The function was assigned the appropriate IAM roles and policies to access DynamoDB and used the boto3 library to connect and write to the database, following this [documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html).
 
 ### Bridging the end-to-end data flow using API Gateway
-At this point, The frontend script can collect the required data and send it to an endpoint, and the lambda function is successfully reading and writing to the DB. The only element needed to interconnect those two is HTTP API Gateway. 
 
-I created two routes; the first one accepts GET requests and triggers the first function to query the number of entries in the table which will work as a visitor's counter. The second route for POST requests with JSON payload is handed to a second function to serialize the data and write it to the DB.
+At this point, the frontend script can collect the required data and send it to an endpoint, and the Lambda function is successfully reading from and writing to the database. The only missing element to interconnect these components was the HTTP API Gateway.
 
-I used Postman for testing and encountered some CORS issues. At this point, I disabled the caching functionality to easily test the changes. And with enough research, especially after finding [this useful blog post](https://dev.to/aws-builders/your-complete-api-gateway-and-cors-guide-11jb), I did the necessary tuning and deploy all changes to production.
+I created two routes:
+
+The first route accepts GET requests and triggers a function to query the number of entries in the table, functioning as a visitor counter.
+The second route accepts POST requests with a JSON payload and triggers a function to serialize the data and write it to the database.
+I used Postman for testing and encountered some CORS issues. To simplify testing, I temporarily disabled the caching functionality. After sufficient research and finding a [this useful blog post](https://dev.to/aws-builders/your-complete-api-gateway-and-cors-guide-11jb), I made the necessary adjustments and deployed all changes to production.
 
